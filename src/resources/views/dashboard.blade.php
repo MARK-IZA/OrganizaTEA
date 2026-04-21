@@ -27,9 +27,4 @@
     </ul>
 @endif
 
-<form method="POST" action="{{ route('logout') }}">
-    @csrf
-    <button class="btn btn-danger">Cerrar sesión</button>
-</form>
-
 @endsection

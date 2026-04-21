@@ -1,57 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Agenda semanal</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+@extends('layouts.app')
 
-        th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-            min-width: 120px;
-        }
+@section('title', 'Agenda semanal')
 
-        th {
-            background-color: #f2f2f2;
-        }
+@section('content')
 
-        .hora {
-            font-weight: bold;
-            background-color: #f9f9f9;
-        }
+<h1 class="mb-4">Agenda semanal</h1>
 
-        .menu {
-            margin-bottom: 20px;
-        }
-
-        .menu a, .menu button {
-            margin-right: 10px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Agenda semanal</h1>
-
-    <div class="menu">
-        <a href="{{ route('dashboard') }}">Volver al dashboard</a>
-
-        <form method="POST" action="{{ route('logout') }}" style="display:inline;">
-            @csrf
-            <button type="submit">Cerrar sesión</button>
-        </form>
+@if ($user && $user->children->count() > 0)
+    <div class="alert alert-info">
+        <strong>Niño/a:</strong>
+        {{ $user->children->first()->nombre }} {{ $user->children->first()->apellidos }}
     </div>
+@endif
 
-    @if ($user && $user->children->count() > 0)
-        <p><strong>Niño/a:</strong> {{ $user->children->first()->nombre }} {{ $user->children->first()->apellidos }}</p>
-    @endif
-
-    <table>
-        <thead>
+<div class="table-responsive">
+    <table class="table table-bordered agenda-table align-middle text-center">
+        <thead class="table-light">
             <tr>
                 <th>Hora</th>
                 @foreach ($dias as $dia)
@@ -62,7 +26,7 @@
         <tbody>
             @foreach ($horas as $hora)
                 <tr>
-                    <td class="hora">{{ $hora }}</td>
+                    <td class="hora fw-bold bg-light">{{ $hora }}</td>
                     @foreach ($dias as $dia)
                         <td contenteditable="true"></td>
                     @endforeach
@@ -70,5 +34,6 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+</div>
+
+@endsection

@@ -11,8 +11,6 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-@import "bootstrap/dist/css/bootstrap.min.css";
-
 .agenda-table td,
 .agenda-table th {
     min-width: 120px;
@@ -21,4 +19,8 @@
 
 .hora {
     white-space: nowrap;
+}
+
+.dropdown-menu {
+    min-width: 280px;
 }
