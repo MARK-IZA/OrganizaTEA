@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\TimerController;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -23,4 +24,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/inicio', function () {
         return view('inicio');
     })->name('inicio');
+    Route::get('/temporizador', [TimerController::class, 'index'])->name('temporizador');
+    Route::post('/temporizador', [TimerController::class, 'store'])->name('temporizador.store');
+
+
 });

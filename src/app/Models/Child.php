@@ -18,4 +18,11 @@ class Child extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    
+    public function timers()
+
+    {
+        return $this->hasMany(Timer::class);
+    }
 }
