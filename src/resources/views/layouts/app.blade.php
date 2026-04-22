@@ -26,7 +26,7 @@
             Seguimiento
         </button>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Notas / observaciones</a></li>
+            <li><a class="dropdown-item" href="{{ route('notes') }}">Notas / observaciones</a></li>
             <li><a class="dropdown-item" href="{{ route('agenda') }}">Agenda semanal</a></li>
             <li><a class="dropdown-item" href="{{ route('temporizador') }}">Temporizador</a>
     </li>
@@ -37,9 +37,7 @@
         Perfil
     </a>
 
-    <a class="btn btn-outline-dark px-4" href="#">
-        Actividades
-    </a>
+    <a class="btn btn-outline-dark px-4" href="{{ route('actividades') }}">Actividades</a>
 
     <form method="POST" action="{{ route('logout') }}" class="d-inline">
         @csrf

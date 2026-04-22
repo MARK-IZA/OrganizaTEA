@@ -14,13 +14,18 @@ class Child extends Model
         'fecha_nacimiento',
     ];
 
-    public function user(): BelongsTo
+        public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    
-    public function timers()
+        public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }   
+
+
+        public function timers()
 
     {
         return $this->hasMany(Timer::class);
