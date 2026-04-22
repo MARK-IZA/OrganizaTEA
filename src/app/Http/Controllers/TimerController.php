@@ -63,4 +63,12 @@ class TimerController extends Controller
 
         return redirect()->route('temporizador');
     }
+
+        public function destroy($id)
+    {
+            $timer = Timer::findOrFail($id);
+            $timer->delete();
+
+        return redirect()->route('temporizador');
+    }
 }

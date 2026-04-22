@@ -56,17 +56,27 @@
             <div class="card-body">
                 <h4 class="mb-3">Temporizadores guardados</h4>
 
-                @if (count($timers) > 0)
-                    <ul class="list-group">
-                        @foreach ($timers as $timer)
-                            <li class="list-group-item">
-                                <strong>{{ $timer->nombre }}</strong> - {{ $timer->duracion_segundos }} segundos
-                            </li>
-                        @endforeach
-                    </ul>
-                @else
-                    <p>No hay temporizadores guardados.</p>
-                @endif
+            @if (count($timers) > 0)
+    <ul class="list-group">
+        @foreach ($timers as $timer)
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>
+                    <strong>{{ $timer->nombre }}</strong> - {{ $timer->duracion_segundos }} segundos
+                </span>
+
+                <form method="POST" action="{{ route('temporizador.destroy', $timer->id) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que quieres eliminar este temporizador?')">
+                        Eliminar
+                    </button>
+                </form>
+            </li>
+        @endforeach
+    </ul>
+@else
+    <p>No hay temporizadores guardados.</p>
+@endif
             </div>
         </div>
 

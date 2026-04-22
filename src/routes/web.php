@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     })->name('inicio');
     Route::get('/temporizador', [TimerController::class, 'index'])->name('temporizador');
     Route::post('/temporizador', [TimerController::class, 'store'])->name('temporizador.store');
+    Route::delete('/temporizador/{id}', [TimerController::class, 'destroy'])->name('temporizador.destroy');
 
 
 });
