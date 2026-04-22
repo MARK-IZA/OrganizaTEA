@@ -42,7 +42,9 @@
             <div class="col-md-4">
                 <div class="card card-inicio seguimiento-card h-100">
                     <div class="card-body">
-                        <div class="icono-card mb-3">📅</div>
+                        <div class="icono-card mb-3">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
                         <h5 class="card-title">Seguimiento</h5>
                         <p class="card-text">
                             Accede a la agenda semanal, las notas u observaciones y el temporizador
@@ -56,7 +58,9 @@
             <div class="col-md-4">
                 <div class="card card-inicio perfil-card h-100">
                     <div class="card-body">
-                        <div class="icono-card mb-3">👤</div>
+                        <div class="icono-card mb-3">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
                         <h5 class="card-title">Perfil</h5>
                         <p class="card-text">
                             Consulta los datos de la cuenta y la información del hijo o hija asociado,
@@ -70,7 +74,9 @@
             <div class="col-md-4">
                 <div class="card card-inicio actividades-card h-100">
                     <div class="card-body">
-                        <div class="icono-card mb-3">🎯</div>
+                        <div class="icono-card mb-3">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
                         <h5 class="card-title">Actividades</h5>
                         <p class="card-text">
                             Consulta actividades, talleres, reuniones, eventos y otros recursos útiles

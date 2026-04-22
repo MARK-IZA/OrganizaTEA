@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>@yield('title', 'OrganizaTEA')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
