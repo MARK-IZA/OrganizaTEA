@@ -52,7 +52,7 @@
     </div>
 
     <div class="col-md-7">
-        <div class="card">
+        <div class="card mb-4">
             <div class="card-body">
                 <h4 class="mb-3">Temporizadores guardados</h4>
 
@@ -68,6 +68,10 @@
                     <p>No hay temporizadores guardados.</p>
                 @endif
             </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <div class="timer-circle"></div>
         </div>
     </div>
 </div>

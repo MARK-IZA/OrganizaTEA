@@ -28,7 +28,8 @@
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Notas / observaciones</a></li>
             <li><a class="dropdown-item" href="{{ route('agenda') }}">Agenda semanal</a></li>
-            <li><a class="dropdown-item" href="#">Temporizador</a></li>
+            <li><a class="dropdown-item" href="{{ route('temporizador') }}">Temporizador</a>
+    </li>
         </ul>
             </div>
 

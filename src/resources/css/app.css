@@ -13,3 +13,16 @@
 .dropdown-menu {
     min-width: 280px;
 }
+
+.timer-circle {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 4px solid black;
+    background: conic-gradient(
+        royalblue 0deg 290deg,
+        red 290deg 325deg,
+        red 325deg 345deg,
+        red 345deg 360deg
+    );
+}
