@@ -1,5 +1,9 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+body {
+    background-color: #f5f9fc;
+}
+
 .agenda-table td,
 .agenda-table th {
     min-width: 120px;
@@ -33,4 +37,79 @@
     padding: 15px;
     min-height: 220px;
     background-color: #f8f9fa;
+}
+
+.hero-inicio {
+    background: linear-gradient(135deg, #d9eff7, #e8f6f2);
+    border-radius: 25px;
+    padding: 40px;
+    margin-bottom: 30px;
+    border: 2px solid #c7e6ee;
+}
+
+.hero-inicio h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1f3c52;
+}
+
+.hero-inicio p {
+    font-size: 1.1rem;
+    color: #35566d;
+}
+
+.card-inicio {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+    background-color: white;
+}
+
+.card-inicio:hover {
+    transform: translateY(-4px);
+}
+
+.card-inicio .card-body {
+    padding: 25px;
+}
+
+.card-inicio h5 {
+    color: #1f3c52;
+    font-weight: bold;
+}
+
+.card-zona-imagenes {
+    border-radius: 20px;
+    border: 2px dashed #9cc7d8;
+    background-color: #ffffff;
+    padding: 40px;
+}
+
+.footer-inicio {
+    color: #4d6a7c;
+    font-size: 0.95rem;
+}
+
+.btn-organiza {
+    background-color: #3c8dbc;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-organiza:hover {
+    background-color: #32779f;
+    color: white;
+}
+
+.btn-organiza-secundario {
+    border: 1px solid #3c8dbc;
+    color: #3c8dbc;
+    border-radius: 10px;
+}
+
+.btn-organiza-secundario:hover {
+    background-color: #3c8dbc;
+    color: white;
 }
