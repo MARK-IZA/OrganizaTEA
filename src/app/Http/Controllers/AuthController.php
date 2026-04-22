@@ -27,7 +27,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($datos)) {
-            return redirect('/dashboard');
+            return redirect('/inicio');
         }
 
         return back()->withErrors([
@@ -64,7 +64,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/dashboard');
+        return redirect('/inicio');
     }
 
     public function dashboard()
@@ -77,6 +77,6 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/inicio');
     }
 }
