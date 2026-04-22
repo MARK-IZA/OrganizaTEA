@@ -43,7 +43,7 @@
                     <p class="card-text">
                         Aquí podrás consultar los datos de la cuenta y la información del hijo o hija asociado.
                     </p>
-                    <a href="{{ route('dashboard') }}" class="btn btn-outline-dark">Ir a perfil</a>
+                    <a href="{{ route('perfil') }}" class="btn btn-outline-dark">Ir a perfil</a>
                 </div>
             </div>
         </div>

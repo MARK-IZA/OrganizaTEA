@@ -33,9 +33,7 @@
         </ul>
             </div>
 
-        <a class="btn btn-outline-dark px-4" href="{{ route('dashboard') }}">
-        Perfil
-    </a>
+        <a class="btn btn-outline-dark px-4" href="{{ route('perfil') }}">Perfil</a>
 
     <a class="btn btn-outline-dark px-4" href="{{ route('actividades') }}">Actividades</a>
 

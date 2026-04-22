@@ -67,16 +67,20 @@ class AuthController extends Controller
         return redirect('/inicio');
     }
 
-    public function dashboard()
+    public function perfil()
     {
         $user = Auth::user();
 
-        return view('dashboard', compact('user'));
+        if ($user) {
+            $user->load('children');
+        }
+
+        return view('perfil', compact('user'));
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/inicio');
+        return redirect('/login');
     }
 }

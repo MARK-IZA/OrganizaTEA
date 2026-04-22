@@ -19,7 +19,7 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+    Route::get('/perfil', [AuthController::class, 'perfil'])->name('perfil');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
     Route::get('/inicio', function () {
