@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Models\Child;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -22,52 +21,48 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+        $datos = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        if (Auth::attempt($datos)) {
             return redirect('/dashboard');
         }
 
         return back()->withErrors([
-            'email' => 'Correo o contraseña incorrectos',
-        ])->onlyInput('email');
+            'email' => 'Correo o contraseña incorrectos'
+        ]);
     }
 
     public function register(Request $request)
     {
-        $data = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'apellidos' => ['nullable', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'confirmed', 'min:6'],
+        $datos = $request->validate([
+            'name' => 'required',
+            'apellidos' => 'nullable',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed|min:6',
 
-            'child_nombre' => ['required', 'string', 'max:255'],
-            'child_apellidos' => ['nullable', 'string', 'max:255'],
-            'child_fecha_nacimiento' => ['nullable', 'date'],
+            'child_nombre' => 'required',
+            'child_apellidos' => 'nullable',
+            'child_fecha_nacimiento' => 'nullable|date',
         ]);
 
-        DB::transaction(function () use ($data, &$user) {
-            $user = User::create([
-                'name' => $data['name'],
-                'apellidos' => $data['apellidos'] ?? null,
-                'email' => $data['email'],
-                'password' => $data['password'],
-            ]);
+        $user = new User();
+        $user->name = $datos['name'];
+        $user->apellidos = $datos['apellidos'] ?? null;
+        $user->email = $datos['email'];
+        $user->password = $datos['password'];
+        $user->save();
 
-            Child::create([
-                'user_id' => $user->id,
-                'nombre' => $data['child_nombre'],
-                'apellidos' => $data['child_apellidos'] ?? null,
-                'fecha_nacimiento' => $data['child_fecha_nacimiento'] ?? null,
-            ]);
-        });
+        $child = new Child();
+        $child->user_id = $user->id;
+        $child->nombre = $datos['child_nombre'];
+        $child->apellidos = $datos['child_apellidos'] ?? null;
+        $child->fecha_nacimiento = $datos['child_fecha_nacimiento'] ?? null;
+        $child->save();
 
         Auth::login($user);
-        $request->session()->regenerate();
 
         return redirect('/dashboard');
     }
@@ -76,20 +71,12 @@ class AuthController extends Controller
     {
         $user = Auth::user();
 
-        if ($user) {
-            $user->load('children');
-        }
-
         return view('dashboard', compact('user'));
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
         return redirect('/login');
     }
 }
