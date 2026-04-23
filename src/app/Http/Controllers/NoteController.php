@@ -25,27 +25,53 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         $datos = $request->validate([
-            'titulo' => 'required',
-            'descripcion' => 'nullable',
+            'titulo' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
             'fecha' => 'nullable|date',
         ]);
 
         $child = Auth::user()->children->first();
 
         if (!$child) {
-            return back()->withErrors([
-                'titulo' => 'No hay ningún hijo asociado.'
-            ]);
+            return response()->json([
+                'ok' => false,
+                'mensaje' => 'No hay ningún hijo asociado.'
+            ], 422);
         }
 
-        Note::create([
+        $note = Note::create([
             'child_id' => $child->id,
             'titulo' => $datos['titulo'],
             'descripcion' => $datos['descripcion'] ?? null,
             'fecha' => $datos['fecha'] ?? null,
         ]);
 
-        return redirect()->route('notes');
+        return response()->json([
+            'ok' => true,
+            'note' => $note
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $datos = $request->validate([
+            'titulo' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'fecha' => 'nullable|date',
+        ]);
+
+        $note = Note::findOrFail($id);
+
+        $note->update([
+            'titulo' => $datos['titulo'],
+            'descripcion' => $datos['descripcion'] ?? null,
+            'fecha' => $datos['fecha'] ?? null,
+        ]);
+
+        return response()->json([
+            'ok' => true,
+            'note' => $note
+        ]);
     }
 
     public function destroy($id)
@@ -53,6 +79,8 @@ class NoteController extends Controller
         $note = Note::findOrFail($id);
         $note->delete();
 
-        return redirect()->route('notes');
+        return response()->json([
+            'ok' => true
+        ]);
     }
 }

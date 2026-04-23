@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/temporizador/{id}', [TimerController::class, 'destroy'])->name('temporizador.destroy');
     Route::get('/notes', [NoteController::class, 'index'])->name('notes');
     Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
+    Route::put('/notes/{id}', [NoteController::class, 'update'])->name('notes.update');
     Route::delete('/notes/{id}', [NoteController::class, 'destroy'])->name('notes.destroy');
     Route::get('/actividades', function () {
         return view('actividades');

@@ -6,19 +6,11 @@
 
 <h1 class="mb-4">Notas / Observaciones</h1>
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul class="mb-0">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+<div id="mensaje-notas" class="mb-3"></div>
 
 <div class="card mb-4">
     <div class="card-body">
-        <form method="POST" action="{{ route('notes.store') }}">
+        <form id="form-nota">
             @csrf
 
             <div class="mb-3">
@@ -41,27 +33,37 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" id="lista-notas">
     @if (count($notes) > 0)
         @foreach ($notes as $note)
-            <div class="col-md-3 mb-4">
+            <div class="col-md-4 mb-4 nota-item"
+                 data-id="{{ $note->id }}"
+                 data-titulo="{{ $note->titulo }}"
+                 data-fecha="{{ $note->fecha }}"
+                 data-descripcion="{{ $note->descripcion }}">
                 <div class="note-card">
-                    <h5>{{ $note->titulo }}</h5>
-                    <p><strong>Fecha:</strong> {{ $note->fecha }}</p>
-                    <p>{{ $note->descripcion }}</p>
+                    <h5 class="nota-titulo">{{ $note->titulo }}</h5>
+                    <p><strong>Fecha:</strong> <span class="nota-fecha">{{ $note->fecha ?? 'Sin fecha' }}</span></p>
+                    <p class="nota-descripcion">{{ $note->descripcion }}</p>
 
-                    <form method="POST" action="{{ route('notes.destroy', $note->id) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar esta nota?')">
+                    <div class="note-actions">
+                        <button type="button"
+                                class="btn btn-warning btn-sm btn-editar-nota"
+                                data-id="{{ $note->id }}">
+                            Editar
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-danger btn-sm btn-eliminar-nota"
+                                data-id="{{ $note->id }}">
                             Eliminar
                         </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         @endforeach
     @else
-        <p>No hay notas guardadas.</p>
+        <p id="sin-notas">No hay notas guardadas.</p>
     @endif
 </div>
 
