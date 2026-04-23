@@ -88,4 +88,85 @@ class AgendaController extends Controller
             'ok' => true
         ]);
     }
+    public function apiIndex()
+    {
+        $user = Auth::user();
+
+        if (!$user || $user->children->count() == 0) {
+            return response()->json([]);
+        }
+
+        $child = $user->children->first();
+
+        $celdas = AgendaCell::where('child_id', $child->id)->get();
+
+        return response()->json($celdas);
+    }
+
+    public function apiGuardar(Request $request)
+    {
+        $request->validate([
+            'celdas' => 'required|array',
+        ]);
+
+        $user = Auth::user();
+
+        if (!$user || $user->children->count() == 0) {
+            return response()->json([
+                'ok' => false,
+                'mensaje' => 'No hay ningún hijo asociado.'
+            ], 422);
+        }
+
+        $child = $user->children->first();
+
+        foreach ($request->celdas as $celda) {
+            AgendaCell::updateOrCreate(
+                [
+                    'child_id' => $child->id,
+                    'dia_semana' => $celda['dia'],
+                    'hora_inicio' => $celda['hora'],
+                ],
+                [
+                    'fila_orden' => $celda['fila_orden'],
+                    'contenido' => $celda['contenido'] ?? null,
+                    'color' => $celda['color'] ?? null,
+                ]
+            );
+        }
+
+        return response()->json([
+            'ok' => true,
+            'mensaje' => 'Cambios guardados correctamente.'
+        ]);
+    }
+
+    public function apiLimpiar(Request $request)
+    {
+        $request->validate([
+            'dia' => 'required|string',
+            'hora' => 'required',
+        ]);
+
+        $user = Auth::user();
+
+        if (!$user || $user->children->count() == 0) {
+            return response()->json([
+                'ok' => false,
+                'mensaje' => 'No hay ningún hijo asociado.'
+            ], 422);
+        }
+
+        $child = $user->children->first();
+
+        AgendaCell::where('child_id', $child->id)
+            ->where('dia_semana', $request->dia)
+            ->where('hora_inicio', $request->hora)
+            ->delete();
+
+        return response()->json([
+            'ok' => true,
+            'mensaje' => 'Celda limpiada correctamente.'
+        ]);
+    }
 }

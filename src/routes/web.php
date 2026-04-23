@@ -21,8 +21,13 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/perfil', [AuthController::class, 'perfil'])->name('perfil');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
     Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda');
     Route::post('/agenda', [AgendaController::class, 'store'])->name('agenda.store');
+    Route::get('/api/agenda', [AgendaController::class, 'apiIndex'])->name('agenda.api.index');
+    Route::post('/api/agenda/guardar', [AgendaController::class, 'apiGuardar'])->name('agenda.api.guardar');
+    Route::delete('/api/agenda/limpiar', [AgendaController::class, 'apiLimpiar'])->name('agenda.api.limpiar');
+
     Route::get('/inicio', function () {
         return view('inicio');
     })->name('inicio');
@@ -35,6 +40,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/actividades', function () {
         return view('actividades');
     })->name('actividades');
-
-
 });

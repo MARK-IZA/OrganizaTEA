@@ -401,3 +401,122 @@ body {
 #mensaje-agenda .alert {
     border-radius: 12px;
 }
+
+.color-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #b8d7e3;
+    cursor: pointer;
+    padding: 0;
+}
+
+.color-btn.activo {
+    outline: 3px solid #1f6f8b;
+}
+
+.celda-agenda {
+    min-height: 70px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.celda-agenda-activa {
+    box-shadow: inset 0 0 0 3px #1f6f8b;
+}
+
+.celda-agenda-modificada {
+    position: relative;
+}
+
+.celda-agenda-modificada::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #1f6f8b;
+}
+.agenda-controles {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.agenda-colores-bloque {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.agenda-paleta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 420px;
+}
+
+.agenda-botones-bloque {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.agenda-celda-seleccionada {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    padding: 10px 14px;
+    background-color: #f8fcff;
+    border: 1px solid #d9e8ef;
+    border-radius: 12px;
+    min-height: 44px;
+}
+
+.color-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #b8d7e3;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.color-btn:hover {
+    transform: scale(1.08);
+}
+
+.color-btn.activo {
+    outline: 3px solid #1f6f8b;
+    box-shadow: 0 0 0 3px rgba(31, 111, 139, 0.15);
+}
+
+.celda-agenda {
+    min-height: 70px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.celda-agenda-activa {
+    box-shadow: inset 0 0 0 3px #1f6f8b;
+}
+
+.celda-agenda-modificada {
+    position: relative;
+}
+
+.celda-agenda-modificada::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #1f6f8b;
+}
