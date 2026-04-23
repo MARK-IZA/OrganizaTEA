@@ -38,7 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
     Route::put('/notes/{id}', [NoteController::class, 'update'])->name('notes.update');
     Route::delete('/notes/{id}', [NoteController::class, 'destroy'])->name('notes.destroy');
-    Route::get('/actividades', function () {
-        return view('actividades');
-    })->name('actividades');
+
+    Route::get('/informacion', function () {
+        return view('informacion');
+    })->name('informacion');
 });

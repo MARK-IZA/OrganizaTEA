@@ -77,12 +77,12 @@
                         <div class="icono-card mb-3">
                             <i class="bi bi-lightbulb"></i>
                         </div>
-                        <h5 class="card-title">Actividades</h5>
+                        <h5 class="card-title">Información</h5>
                         <p class="card-text">
                             Consulta actividades, talleres, reuniones, eventos y otros recursos útiles
                             para familias y niños con TEA.
                         </p>
-                        <a href="{{ route('actividades') }}" class="btn btn-organiza-secundario">Ir a actividades</a>
+                        <a href="{{ route('informacion') }}" class="btn btn-organiza-secundario">Ir a Información</a>
                     </div>
                 </div>
             </div>
