@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Child;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Note;
+use App\Models\Timer;
 
 class AuthController extends Controller
 {
@@ -73,9 +75,21 @@ class AuthController extends Controller
 
         if ($user) {
             $user->load('children');
+
+            $child = $user->children->first();
+
+            $notas = 0;
+            $temporizadores = 0;
+
+            if ($child) {
+                $notas = Note::where('child_id', $child->id)->count();
+                $temporizadores = Timer::where('child_id', $child->id)->count();
+            }
+
+            return view('perfil', compact('user', 'notas', 'temporizadores'));
         }
 
-        return view('perfil', compact('user'));
+        return view('perfil');
     }
 
     public function logout(Request $request)

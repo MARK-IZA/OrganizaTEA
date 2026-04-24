@@ -717,3 +717,42 @@ body {
     height: 100%;
     border: 0;
 }
+
+
+.perfil-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.perfil-card h4 {
+    margin-bottom: 15px;
+    color: #1f3c52;
+    font-weight: bold;
+}
+
+.resumen-perfil {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.resumen-item {
+    text-align: center;
+}
+
+.resumen-item h5 {
+    font-size: 2rem;
+    color: #3c8dbc;
+    margin-bottom: 5px;
+}
+
+.resumen-item p {
+    color: #35566d;
+}
+.resumen-perfil.centrado {
+    justify-content: center;
+    gap: 60px;
+}
