@@ -653,3 +653,67 @@ body {
 .recurso-item p {
     color: #35566d;
 }
+
+.actividades-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.actividad-item {
+    background-color: #f4fbff;
+    border: 1px solid #d9e8ef;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.actividad-item h5 {
+    margin-bottom: 6px;
+    color: #1f3c52;
+    font-weight: 600;
+}
+
+.actividad-item p {
+    margin-bottom: 10px;
+    color: #35566d;
+}
+
+.recursos-info-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.recurso-info-item {
+    background-color: #f4fbff;
+    border: 1px solid #d9e8ef;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.recurso-info-item h5 {
+    margin-bottom: 6px;
+    color: #1f3c52;
+    font-weight: 600;
+}
+
+.recurso-info-item p {
+    margin-bottom: 10px;
+    color: #35566d;
+}
+
+.video-info {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #d9e8ef;
+    background-color: #eef8fc;
+}
+
+.video-info iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

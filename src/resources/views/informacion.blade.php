@@ -18,8 +18,7 @@
 <section class="info-section mb-4">
     <h4>Asociaciones TEA</h4>
     <p>
-        Algunas asociaciones ofrecen información, orientación familiar, actividades,
-        talleres o recursos para personas con TEA y sus familias.
+        Algunas asociaciones ofrecen información, orientación familiar y recursos para personas con TEA y sus familias.
     </p>
 
     <div class="info-links">
@@ -32,23 +31,83 @@
 </section>
 
 <section class="info-section mb-4">
-    <h4>Talleres y actividades</h4>
+    <h4>Artículos y vídeos recomendados</h4>
     <p>
-        Las asociaciones suelen publicar charlas, talleres, jornadas, actividades de ocio,
-        apoyo familiar y formación. Desde aquí se puede acceder a sus páginas para consultar
-        próximas actividades.
+        En este apartado se recopilan artículos, guías y vídeos que pueden servir de ayuda
+        a las familias para conocer mejor el TEA y encontrar recursos de apoyo.
     </p>
 
-    <ul class="info-lista">
-        <li>Talleres de habilidades sociales.</li>
-        <li>Actividades sensoriales o de ocio adaptado.</li>
-        <li>Charlas para familias.</li>
-        <li>Jornadas, eventos y formación.</li>
-    </ul>
+    <div class="recursos-info-lista mb-4">
 
-    <p class="mb-0">
-        Puedes consultar las novedades directamente desde las webs de las asociaciones anteriores.
-    </p>
+        <div class="recurso-info-item">
+            <h5>¿Qué es el autismo?</h5>
+            <p>Información general sobre el Trastorno del Espectro Autista.</p>
+            <a href="https://autismo.org.es/el-autismo/que-es-el-autismo/" target="_blank" class="btn btn-organiza-secundario btn-sm">
+                Leer artículo
+            </a>
+        </div>
+
+        <div class="recurso-info-item">
+            <h5>Señales tempranas del autismo</h5>
+            <p>PDF informativo en español sobre señales del autismo y detección temprana.</p>
+            <a href="https://www.cdc.gov/spanish/mediosdecomunicacion/pdf/ASD-Learn-the-Signs-of-Autism-Spanish.pdf" target="_blank" class="btn btn-organiza-secundario btn-sm">
+                Ver PDF
+            </a>
+        </div>
+
+        <div class="recurso-info-item">
+            <h5>Guía práctica sobre autismo</h5>
+            <p>Guía práctica con información amplia sobre autismo, diagnóstico y apoyo.</p>
+            <a href="https://autismo.org.es/wp-content/uploads/2020/09/guia_practica_de_escap_para_el_autismo.pdf" target="_blank" class="btn btn-organiza-secundario btn-sm">
+                Ver guía
+            </a>
+        </div>
+
+    </div>
+
+    <h5 class="mb-3">Vídeos informativos</h5>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="video-info">
+                <iframe src="https://www.youtube.com/embed/OqOF5XIqcI0"
+                        title="Vídeo informativo sobre TEA"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <p class="mt-2 mb-0"><strong>Serie TEA - La aventura del saber</strong></p>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="video-info">
+                <iframe src="https://www.youtube.com/embed/anZSCyIJVEA"
+                        title="Entrevista sobre trastorno del espectro autista"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <p class="mt-2 mb-0"><strong>Hablamos sobre el Trastorno del Espectro Autista</strong></p>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="video-info">
+                <iframe src="https://www.youtube.com/embed/n5dRk0vateA"
+                        title="Estrategias para familias en atención temprana"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <p class="mt-2 mb-0"><strong>Estrategias para trabajar junto a familias</strong></p>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="video-info">
+                <iframe src="https://www.youtube.com/embed/KOsoBC2L3IU"
+                        title="Qué es el autismo"
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <p class="mt-2 mb-0"><strong>¿Qué es el autismo?</strong></p>
+        </div>
+    </div>
 </section>
 
 <section class="info-section mb-4">
