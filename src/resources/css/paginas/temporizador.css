@@ -3,13 +3,42 @@
     height: 320px;
     border-radius: 50%;
     border: 4px solid black;
+    transition: all 0.3s ease;
+}
+
+/* Estado inicial */
+.circulo-base {
     background: royalblue;
+}
+
+/* Estado en progreso */
+.circulo-activo {
+    background: conic-gradient(
+        royalblue 0deg var(--grados, 360deg),
+        red var(--grados, 360deg) 360deg
+    );
+}
+
+/* Estado finalizado */
+.circulo-finalizado {
+    background: green;
+}
+
+.timer-finalizado {
+    color: green;
+    font-weight: bold;
 }
 
 .timer-item {
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.timer-item:hover {
+    background-color: #f5fbfe;
 }
 
 .timer-item-activo {
+    border: 2px solid #3c8dbc;
     background-color: #eaf7fc;
 }

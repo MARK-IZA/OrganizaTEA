@@ -14,28 +14,37 @@ document.addEventListener('DOMContentLoaded', function () {
     let tiempoSeleccionado = null;
     let itemActivo = null;
 
-    function formatearTiempo(segundos) {
-    let h = Math.floor(segundos / 3600);
-    let m = Math.floor((segundos % 3600) / 60);
-    let s = segundos % 60;
+    function ponerCirculoBase() {
+        circulo.classList.remove('circulo-activo', 'circulo-finalizado');
+        circulo.classList.add('circulo-base');
 
-    return (
-        String(h).padStart(2, '0') + ':' +
-        String(m).padStart(2, '0') + ':' +
-        String(s).padStart(2, '0')
-    );
-}
+        if (tiempoTexto) {
+            tiempoTexto.classList.remove('timer-finalizado');
+        }
+    }
+
+    function formatearTiempo(segundos) {
+        let h = Math.floor(segundos / 3600);
+        let m = Math.floor((segundos % 3600) / 60);
+        let s = segundos % 60;
+
+        return (
+            String(h).padStart(2, '0') + ':' +
+            String(m).padStart(2, '0') + ':' +
+            String(s).padStart(2, '0')
+        );
+    }
 
     function actualizarCirculo(restante, total) {
         let porcentaje = restante / total;
         let grados = porcentaje * 360;
 
-        circulo.style.background = `conic-gradient(
-            royalblue 0deg ${grados}deg,
-            red ${grados}deg 360deg
-        )`;
+        circulo.classList.remove('circulo-base', 'circulo-finalizado');
+        circulo.classList.add('circulo-activo');
+        circulo.style.setProperty('--grados', grados + 'deg');
 
         if (tiempoTexto) {
+            tiempoTexto.classList.remove('timer-finalizado');
             tiempoTexto.textContent = formatearTiempo(restante);
         }
     }
@@ -45,11 +54,14 @@ document.addEventListener('DOMContentLoaded', function () {
             el.classList.remove('timer-item-activo');
         });
 
+        clearInterval(intervalo);
+
         item.classList.add('timer-item-activo');
         itemActivo = item;
         tiempoSeleccionado = parseInt(item.dataset.tiempo);
 
         if (tiempoTexto) {
+            tiempoTexto.classList.remove('timer-finalizado');
             tiempoTexto.textContent = item.dataset.nombre + ' - ' + formatearTiempo(tiempoSeleccionado);
         }
 
@@ -74,9 +86,15 @@ document.addEventListener('DOMContentLoaded', function () {
             if (tiempoRestante <= 0) {
                 tiempoRestante = 0;
                 clearInterval(intervalo);
-                circulo.style.background = 'green';
-                tiempoTexto.textContent = 'Finalizado';
-                tiempoTexto.style.color = 'green';
+
+                circulo.classList.remove('circulo-activo', 'circulo-base');
+                circulo.classList.add('circulo-finalizado');
+
+                if (tiempoTexto) {
+                    tiempoTexto.textContent = 'Finalizado';
+                    tiempoTexto.classList.add('timer-finalizado');
+                }
+
                 return;
             }
 
@@ -102,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function () {
             </li>
         `;
     }
+
+    ponerCirculoBase();
 
     lista.addEventListener('click', function (e) {
         const botonEliminar = e.target.closest('.btn-eliminar-timer');
@@ -131,18 +151,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (itemActivo && itemActivo.dataset.id === id) {
                         tiempoSeleccionado = null;
                         itemActivo = null;
-                        tiempoTexto.textContent = 'Selecciona un temporizador';
-                        tiempoTexto.style.color = '';
-                        circulo.style.background = `conic-gradient(
-                            royalblue 0deg 290deg,
-                            red 290deg 325deg,
-                            red 325deg 345deg,
-                            red 345deg 360deg
-                        )`;
                         clearInterval(intervalo);
+
+                        ponerCirculoBase();
+
+                        if (tiempoTexto) {
+                            tiempoTexto.textContent = 'Selecciona un temporizador';
+                        }
                     }
                 }
             });
+
             return;
         }
 
@@ -168,18 +187,22 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(async res => {
             const data = await res.json();
+
             if (!res.ok) {
                 throw data;
             }
+
             return data;
         })
         .then(data => {
             const vacio = document.getElementById('sin-temporizadores');
+
             if (vacio) {
                 vacio.remove();
             }
 
             lista.insertAdjacentHTML('beforeend', crearHtmlTimer(data.timer));
+
             form.reset();
             document.getElementById('horas').value = 0;
             document.getElementById('minutos').value = 0;
@@ -187,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => {
             let mensaje = 'Ha ocurrido un error.';
+
             if (error.mensaje) {
                 mensaje = error.mensaje;
             }
