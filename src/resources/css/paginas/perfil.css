@@ -1,0 +1,20 @@
+.perfil-card {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: white;
+}
+
+.resumen-perfil {
+    display: flex;
+    gap: 15px;
+}
+
+.resumen-item {
+    background-color: #eaf7fc;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn-cerrar-perfil {
+    margin-top: 20px;
+}

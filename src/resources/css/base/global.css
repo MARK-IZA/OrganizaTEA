@@ -1,0 +1,34 @@
+body {
+    background: linear-gradient(180deg, #eef7fb 0%, #f8fbfd 100%);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropdown-menu {
+    min-width: 280px;
+}
+
+.btn-organiza {
+    background-color: #3c8dbc;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 18px;
+}
+
+.btn-organiza:hover {
+    background-color: #32779f;
+    color: white;
+}
+
+.btn-organiza-secundario {
+    border: 1px solid #3c8dbc;
+    color: #3c8dbc;
+    border-radius: 12px;
+    padding: 10px 18px;
+    background-color: white;
+}
+
+.btn-organiza-secundario:hover {
+    background-color: #3c8dbc;
+    color: white;
+}
