@@ -50,6 +50,11 @@
     display: block;
 }
 
+.titulo-seccion-inicio {
+    color: #1f3c52;
+    font-weight: bold;
+}
+
 .card-inicio {
     border: none;
     border-radius: 24px;
@@ -82,10 +87,19 @@
     border-top: 6px solid #3c8dbc;
 }
 
+.notas-card {
+    border-top: 6px solid #ffd166;
+}
+
+.temporizador-card {
+    border-top: 6px solid #f4978e;
+}
+
 .perfil-card {
     border-top: 6px solid #63c7b2;
 }
 
+.informacion-card,
 .actividades-card {
     border-top: 6px solid #8aa6ff;
 }
@@ -103,13 +117,13 @@
 }
 
 .lista-inicio li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .inicio-carrusel-section {
     background-color: white;
     border-radius: 28px;
-    padding: 35px;
+    padding: 28px;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
 }
 
@@ -126,11 +140,14 @@
     border-radius: 22px;
     overflow: hidden;
     border: 1px solid #d9e8ef;
+    background-color: #f8fcff;
 }
 
 .carrusel-img {
-    height: 340px;
-    object-fit: cover;
+    height: 300px;
+    object-fit: contain;
+    background-color: #ffffff;
+    padding: 10px;
 }
 
 .inicio-apoyo {

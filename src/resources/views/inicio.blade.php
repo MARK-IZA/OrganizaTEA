@@ -25,7 +25,7 @@
 
                 <div class="d-flex gap-2 flex-wrap">
                     <a href="{{ route('agenda') }}" class="btn btn-organiza">Empezar con la agenda</a>
-                    <a href="{{ route('perfil') }}" class="btn btn-organiza-secundario">Ver perfil</a>
+                    <a href="{{ route('informacion') }}" class="btn btn-organiza-secundario">Ver recursos</a>
                 </div>
             </div>
 
@@ -41,6 +41,8 @@
     </section>
 
     <section class="mb-5">
+        <h3 class="titulo-seccion-inicio mb-4">Apartados principales</h3>
+
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="card card-inicio seguimiento-card h-100">
@@ -49,30 +51,68 @@
                             <i class="bi bi-calendar-check"></i>
                         </div>
 
-                        <h5 class="card-title">Seguimiento</h5>
+                        <h5 class="card-title">Agenda semanal</h5>
 
                         <p class="card-text">
-                            Accede a la agenda semanal, las notas u observaciones y el temporizador
-                            para organizar rutinas y situaciones del día a día.
+                            Organiza la semana por días y horas, añadiendo rutinas,
+                            actividades, colores y cambios importantes.
                         </p>
 
-                        <a href="{{ route('agenda') }}" class="btn btn-organiza">Ir a seguimiento</a>
+                        <a href="{{ route('agenda') }}" class="btn btn-organiza">Ir a agenda</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
+                <div class="card card-inicio notas-card h-100">
+                    <div class="card-body">
+                        <div class="icono-card mb-3">
+                            <i class="bi bi-journal-text"></i>
+                        </div>
+
+                        <h5 class="card-title">Notas / observaciones</h5>
+
+                        <p class="card-text">
+                            Registra observaciones, incidencias, alimentación, conducta
+                            o cualquier información importante del día a día.
+                        </p>
+
+                        <a href="{{ route('notes') }}" class="btn btn-organiza-secundario">Ir a notas</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-inicio temporizador-card h-100">
+                    <div class="card-body">
+                        <div class="icono-card mb-3">
+                            <i class="bi bi-stopwatch"></i>
+                        </div>
+
+                        <h5 class="card-title">Temporizador</h5>
+
+                        <p class="card-text">
+                            Utiliza un temporizador visual para representar tiempos de espera,
+                            rutinas o actividades de forma sencilla.
+                        </p>
+
+                        <a href="{{ route('temporizador') }}" class="btn btn-organiza-secundario">Ir a temporizador</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
                 <div class="card card-inicio perfil-card h-100">
                     <div class="card-body">
                         <div class="icono-card mb-3">
                             <i class="bi bi-person-circle"></i>
                         </div>
 
-                        <h5 class="card-title">Perfil</h5>
+                        <h5 class="card-title">Perfil familiar</h5>
 
                         <p class="card-text">
-                            Consulta los datos de la cuenta y la información del hijo o hija asociado,
-                            todo recogido en un mismo apartado.
+                            Consulta los datos de la cuenta y la información del hijo o hija
+                            asociado.
                         </p>
 
                         <a href="{{ route('perfil') }}" class="btn btn-organiza-secundario">Ir a perfil</a>
@@ -80,18 +120,18 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card card-inicio actividades-card h-100">
+            <div class="col-md-6">
+                <div class="card card-inicio informacion-card h-100">
                     <div class="card-body">
                         <div class="icono-card mb-3">
                             <i class="bi bi-lightbulb"></i>
                         </div>
 
-                        <h5 class="card-title">Información</h5>
+                        <h5 class="card-title">Información y recursos</h5>
 
                         <p class="card-text">
-                            Consulta asociaciones, artículos, vídeos y recursos útiles para familias
-                            y niños con TEA.
+                            Accede a asociaciones, artículos, vídeos y un buscador externo
+                            de colegios, centros y recursos relacionados con el TEA.
                         </p>
 
                         <a href="{{ route('informacion') }}" class="btn btn-organiza-secundario">Ir a información</a>
@@ -102,19 +142,20 @@
     </section>
 
     <section class="zona-extra mb-5">
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-4 mb-md-0">
+        <div class="row align-items-center g-4">
+            <div class="col-md-5">
                 <h3 class="mb-3">¿Qué podrás encontrar aquí?</h3>
 
                 <ul class="lista-inicio mb-0">
-                    <li>Organización semanal mediante agenda visual.</li>
-                    <li>Notas y observaciones para registrar cambios o incidencias.</li>
-                    <li>Temporizador con apoyo visual para tiempos de espera.</li>
-                    <li>Información útil y recursos para familias.</li>
+                    <li>Organización semanal mediante una agenda visual.</li>
+                    <li>Notas y observaciones para registrar información importante.</li>
+                    <li>Temporizador visual para apoyar rutinas y tiempos de espera.</li>
+                    <li>Perfil familiar con datos básicos de la cuenta.</li>
+                    <li>Información útil, asociaciones, vídeos y buscador de centros.</li>
                 </ul>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <section class="inicio-carrusel-section">
                     <h3 class="mb-3">Organización, apoyo y recursos</h3>
 
