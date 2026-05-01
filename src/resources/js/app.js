@@ -3,3 +3,4 @@ import './temporizador';
 import './agenda';
 import './notes';
 import './informacion';
+import './contacto';

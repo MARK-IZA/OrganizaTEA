@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AgendaController;
@@ -42,4 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/informacion', function () {
         return view('informacion');
     })->name('informacion');
+
+
+    Route::get('/contacto', [ContactController::class, 'index'])->name('contacto');
+    Route::post('/contacto', [ContactController::class, 'store'])->name('contacto.store');
 });
