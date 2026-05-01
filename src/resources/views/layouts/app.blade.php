@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'OrganizaTEA')</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
