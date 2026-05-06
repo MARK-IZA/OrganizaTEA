@@ -24,8 +24,13 @@
                 </p>
 
                 <div class="d-flex gap-2 flex-wrap">
-                    <a href="{{ route('agenda') }}" class="btn btn-organiza">Empezar con la agenda</a>
-                    <a href="{{ route('informacion') }}" class="btn btn-organiza-secundario">Ver recursos</a>
+                    @auth
+                        <a href="{{ route('agenda') }}" class="btn btn-organiza">Empezar con la agenda</a>
+                        <a href="{{ route('informacion') }}" class="btn btn-organiza-secundario">Ver recursos</a>
+                    @else
+                        <a href="{{ route('register') }}" class="btn btn-organiza">Crear cuenta gratis</a>
+                        <a href="{{ route('login') }}" class="btn btn-organiza-secundario">Iniciar sesión</a>
+                    @endauth
                 </div>
             </div>
 
@@ -50,15 +55,16 @@
                         <div class="icono-card mb-3">
                             <i class="bi bi-calendar-check"></i>
                         </div>
-
                         <h5 class="card-title">Agenda semanal</h5>
-
                         <p class="card-text">
                             Organiza la semana por días y horas, añadiendo rutinas,
                             actividades, colores y cambios importantes.
                         </p>
-
-                        <a href="{{ route('agenda') }}" class="btn btn-organiza">Ir a agenda</a>
+                        @auth
+                            <a href="{{ route('agenda') }}" class="btn btn-organiza">Ir a agenda</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-organiza">Acceder</a>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -69,15 +75,16 @@
                         <div class="icono-card mb-3">
                             <i class="bi bi-journal-text"></i>
                         </div>
-
                         <h5 class="card-title">Notas / observaciones</h5>
-
                         <p class="card-text">
                             Registra observaciones, incidencias, alimentación, conducta
                             o cualquier información importante del día a día.
                         </p>
-
-                        <a href="{{ route('notes') }}" class="btn btn-organiza-secundario">Ir a notas</a>
+                        @auth
+                            <a href="{{ route('notes') }}" class="btn btn-organiza-secundario">Ir a notas</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-organiza-secundario">Acceder</a>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -88,15 +95,16 @@
                         <div class="icono-card mb-3">
                             <i class="bi bi-stopwatch"></i>
                         </div>
-
                         <h5 class="card-title">Temporizador</h5>
-
                         <p class="card-text">
                             Utiliza un temporizador visual para representar tiempos de espera,
                             rutinas o actividades de forma sencilla.
                         </p>
-
-                        <a href="{{ route('temporizador') }}" class="btn btn-organiza-secundario">Ir a temporizador</a>
+                        @auth
+                            <a href="{{ route('temporizador') }}" class="btn btn-organiza-secundario">Ir a temporizador</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-organiza-secundario">Acceder</a>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -107,15 +115,16 @@
                         <div class="icono-card mb-3">
                             <i class="bi bi-person-circle"></i>
                         </div>
-
                         <h5 class="card-title">Perfil familiar</h5>
-
                         <p class="card-text">
                             Consulta los datos de la cuenta y la información del hijo o hija
                             asociado.
                         </p>
-
-                        <a href="{{ route('perfil') }}" class="btn btn-organiza-secundario">Ir a perfil</a>
+                        @auth
+                            <a href="{{ route('perfil') }}" class="btn btn-organiza-secundario">Ir a perfil</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-organiza-secundario">Acceder</a>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -126,15 +135,16 @@
                         <div class="icono-card mb-3">
                             <i class="bi bi-lightbulb"></i>
                         </div>
-
                         <h5 class="card-title">Información y recursos</h5>
-
                         <p class="card-text">
                             Accede a asociaciones, artículos, vídeos y un buscador externo
                             de colegios, centros y recursos relacionados con el TEA.
                         </p>
-
-                        <a href="{{ route('informacion') }}" class="btn btn-organiza-secundario">Ir a información</a>
+                        @auth
+                            <a href="{{ route('informacion') }}" class="btn btn-organiza-secundario">Ir a información</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-organiza-secundario">Acceder</a>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -145,7 +155,6 @@
         <div class="row align-items-center g-4">
             <div class="col-md-5">
                 <h3 class="mb-3">¿Qué podrás encontrar aquí?</h3>
-
                 <ul class="lista-inicio mb-0">
                     <li>Organización semanal mediante una agenda visual.</li>
                     <li>Notas y observaciones para registrar información importante.</li>
@@ -158,7 +167,6 @@
             <div class="col-md-7">
                 <section class="inicio-carrusel-section">
                     <h3 class="mb-3">Organización, apoyo y recursos</h3>
-
                     <p class="mb-4">
                         Imágenes representativas sobre familias, rutinas, asociaciones y apoyo relacionado con el TEA.
                     </p>
@@ -175,15 +183,12 @@
                             <div class="carousel-item active">
                                 <img src="{{ asset('images/inicio/foto.Inicio1.jpg') }}" class="d-block w-100 carrusel-img" alt="Familia">
                             </div>
-
                             <div class="carousel-item">
                                 <img src="{{ asset('images/inicio/ImagenInicio3.jpg') }}" class="d-block w-100 carrusel-img" alt="Rutina visual">
                             </div>
-
                             <div class="carousel-item">
                                 <img src="{{ asset('images/inicio/imagesInicio4.png') }}" class="d-block w-100 carrusel-img" alt="Apoyo TEA">
                             </div>
-
                             <div class="carousel-item">
                                 <img src="{{ asset('images/inicio/SUMATEAInicio2.jpg') }}" class="d-block w-100 carrusel-img" alt="SUMATEA">
                             </div>
@@ -192,7 +197,6 @@
                         <button class="carousel-control-prev" type="button" data-bs-target="#carruselInicio" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon"></span>
                         </button>
-
                         <button class="carousel-control-next" type="button" data-bs-target="#carruselInicio" data-bs-slide="next">
                             <span class="carousel-control-next-icon"></span>
                         </button>
@@ -206,14 +210,12 @@
         <div class="row align-items-center">
             <div class="col-md-8">
                 <h3>Apoyo para la organización diaria</h3>
-
                 <p>
                     OrganizaTEA busca facilitar el día a día de las familias mediante herramientas sencillas,
                     visuales y fáciles de utilizar, como la agenda semanal, las notas, el temporizador
                     y la sección de información.
                 </p>
             </div>
-
             <div class="col-md-4 text-center">
                 <div class="inicio-apoyo-icono">
                     <i class="bi bi-heart-pulse"></i>

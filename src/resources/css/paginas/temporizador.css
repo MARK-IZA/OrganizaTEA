@@ -8,14 +8,14 @@
 
 /* Estado inicial */
 .circulo-base {
-    background: royalblue;
+    background: grey;
 }
 
 /* Estado en progreso */
 .circulo-activo {
     background: conic-gradient(
-        royalblue 0deg var(--grados, 360deg),
-        red var(--grados, 360deg) 360deg
+        grey 0deg var(--grados, 360deg),
+        green var(--grados, 360deg) 360deg
     );
 }
 

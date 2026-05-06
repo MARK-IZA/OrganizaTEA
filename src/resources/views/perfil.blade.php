@@ -8,7 +8,6 @@
 
 <div class="row">
 
-    <!-- DATOS USUARIO -->
     <div class="col-md-6 mb-4">
         <div class="perfil-card">
             <h4>Datos de la cuenta</h4>
@@ -19,7 +18,6 @@
         </div>
     </div>
 
-    <!-- DATOS NIÑO -->
     <div class="col-md-6 mb-4">
         <div class="perfil-card">
             <h4>Datos del niño/a</h4>
@@ -39,25 +37,31 @@
                 @if ($edad)
                     <p><strong>Edad:</strong> {{ $edad }} años</p>
                 @endif
-
             @else
                 <p>No hay datos del niño/a.</p>
             @endif
         </div>
     </div>
 
-    <!-- RESUMEN -->
     <div class="col-12 mb-4">
-        <div class="perfil-card">
+        <div class="perfil-card perfil-resumen">
             <h4>Resumen de actividad</h4>
 
-            <div class="resumen-perfil centrado">
+            <div class="resumen-contenido">
                 <div class="resumen-item">
+                    <div class="resumen-icono">
+                        <i class="bi bi-journal-text"></i>
+                    </div>
+
                     <h5>{{ $notas }}</h5>
                     <p>Notas registradas</p>
                 </div>
 
                 <div class="resumen-item">
+                    <div class="resumen-icono">
+                        <i class="bi bi-stopwatch"></i>
+                    </div>
+
                     <h5>{{ $temporizadores }}</h5>
                     <p>Temporizadores creados</p>
                 </div>
@@ -65,11 +69,10 @@
         </div>
     </div>
 
-    <!-- LOGOUT -->
     <div class="col-12 text-center">
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" class="btn btn-danger">
+            <button type="submit" class="btn btn-danger btn-cerrar-perfil">
                 Cerrar sesión
             </button>
         </form>

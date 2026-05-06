@@ -1,20 +1,82 @@
 .perfil-card {
-    border-radius: 20px;
-    padding: 20px;
     background-color: white;
+    border-radius: 22px;
+    padding: 26px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+    border-top: 5px solid #63c7b2;
 }
 
-.resumen-perfil {
+.perfil-card h4 {
+    margin-bottom: 18px;
+    color: #1f3c52;
+    font-weight: bold;
+}
+
+.perfil-card p {
+    color: #35566d;
+    margin-bottom: 12px;
+}
+
+.perfil-resumen {
+    padding: 30px;
+}
+
+.resumen-contenido {
     display: flex;
-    gap: 15px;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
 }
 
 .resumen-item {
-    background-color: #eaf7fc;
-    padding: 10px;
-    border-radius: 10px;
+    width: 230px;
+    background: linear-gradient(135deg, #eef8fc, #e6f8f2);
+    border: 1px solid #d9e8ef;
+    border-radius: 18px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resumen-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+}
+
+.resumen-icono {
+    font-size: 2.2rem;
+    color: #3c8dbc;
+    margin-bottom: 10px;
+}
+
+.resumen-item h5 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1f3c52;
+    margin-bottom: 6px;
+}
+
+.resumen-item p {
+    color: #35566d;
+    margin-bottom: 0;
 }
 
 .btn-cerrar-perfil {
-    margin-top: 20px;
+    margin-top: 10px;
+    border-radius: 12px;
+    padding: 10px 22px;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .resumen-contenido {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .resumen-item {
+        width: 100%;
+        max-width: 260px;
+    }
 }
