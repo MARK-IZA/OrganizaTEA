@@ -1,6 +1,6 @@
 .timer-circle {
-    width: 320px;
-    height: 320px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     border: 4px solid black;
     transition: all 0.3s ease;
@@ -41,4 +41,26 @@
 .timer-item-activo {
     border: 2px solid #3c8dbc;
     background-color: #eaf7fc;
+}
+
+/* Lista con scroll fijo, nunca empuja el círculo */
+#lista-temporizadores {
+    max-height: 320px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3c8dbc #f0f0f0;
+}
+
+#lista-temporizadores::-webkit-scrollbar {
+    width: 6px;
+}
+
+#lista-temporizadores::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+#lista-temporizadores::-webkit-scrollbar-thumb {
+    background-color: #3c8dbc;
+    border-radius: 10px;
 }

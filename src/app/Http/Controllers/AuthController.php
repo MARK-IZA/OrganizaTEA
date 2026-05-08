@@ -97,4 +97,31 @@ class AuthController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+
+    public function showRecuperar()
+    {
+        return view('auth.recuperar');
+    }
+
+    public function recuperar(Request $request)
+    {
+        $datos = $request->validate([
+            'email'                 => 'required|email',
+            'password'              => 'required|confirmed|min:6',
+            'password_confirmation' => 'required',
+        ]);
+
+        $user = User::where('email', $datos['email'])->first();
+
+        if (!$user) {
+            return back()->withErrors([
+                'email' => 'No existe ninguna cuenta con ese correo.'
+            ]);
+        }
+
+        $user->password = $datos['password'];
+        $user->save();
+
+        return redirect()->route('login')->with('success', 'Contraseña actualizada correctamente. Ya puedes iniciar sesión.');
+    }
 }

@@ -23,6 +23,10 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
     Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
+    //Recuperar contraseña 
+    Route::get('/recuperar', [AuthController::class, 'showRecuperar'])->name('recuperar');
+    Route::post('/recuperar', [AuthController::class, 'recuperar'])->name('recuperar.post');
 });
 
 // Solo para logueados

@@ -14,7 +14,7 @@
                 <h1 class="mb-3">Bienvenido a OrganizaTEA</h1>
 
                 <p class="mb-3">
-                    OrganizaTEA es una aplicación pensada para ayudar a las familias a organizar
+                    OrganizaTEA es una web pensada para ayudar a las familias a organizar
                     el seguimiento diario de niños y niñas con TEA de una forma clara, visual y sencilla.
                 </p>
 

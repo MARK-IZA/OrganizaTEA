@@ -9,8 +9,10 @@
 <div id="mensaje-error"></div>
 
 <div class="row">
+
+    {{-- Columna izquierda: formulario --}}
     <div class="col-md-5">
-        <div class="card mb-4">
+        <div class="card">
             <div class="card-body">
                 <h4 class="mb-3">Crear temporizador</h4>
 
@@ -43,40 +45,51 @@
         </div>
     </div>
 
+    {{-- Columna derecha: lista + círculo en la misma card --}}
     <div class="col-md-7">
-        <div class="card mb-4">
+        <div class="card">
             <div class="card-body">
-                <h4 class="mb-3">Temporizadores guardados</h4>
 
-                <ul class="list-group" id="lista-temporizadores">
-                    @forelse ($timers as $timer)
-                        <li class="list-group-item d-flex justify-content-between align-items-center timer-item"
-                            data-id="{{ $timer->id }}"
-                            data-nombre="{{ $timer->nombre }}"
-                            data-tiempo="{{ $timer->duracion_segundos }}">
-                            <span>
-                                <strong>{{ $timer->nombre }}</strong> - {{ $timer->duracion_segundos }} segundos
-                            </span>
+                <div class="row align-items-start">
 
-                            <button type="button"
-                                class="btn btn-danger btn-sm btn-eliminar-timer"
-                                data-id="{{ $timer->id }}">
-                                Eliminar
-                            </button>
-                        </li>
-                    @empty
-                        <li class="list-group-item" id="sin-temporizadores">No hay temporizadores guardados.</li>
-                    @endforelse
-                </ul>
+                    {{-- Lista con scroll --}}
+                    <div class="col-md-6">
+                        <h4 class="mb-3">Temporizadores guardados</h4>
+                        <ul class="list-group" id="lista-temporizadores">
+                            @forelse ($timers as $timer)
+                                <li class="list-group-item d-flex justify-content-between align-items-center timer-item"
+                                    data-id="{{ $timer->id }}"
+                                    data-nombre="{{ $timer->nombre }}"
+                                    data-tiempo="{{ $timer->duracion_segundos }}">
+                                    <span>
+                                        <strong>{{ $timer->nombre }}</strong><br>
+                                        <small class="text-muted">{{ $timer->duracion_segundos }} segundos</small>
+                                    </span>
+                                    <button type="button"
+                                        class="btn btn-danger btn-sm btn-eliminar-timer"
+                                        data-id="{{ $timer->id }}">
+                                        Eliminar
+                                    </button>
+                                </li>
+                            @empty
+                                <li class="list-group-item" id="sin-temporizadores">No hay temporizadores guardados.</li>
+                            @endforelse
+                        </ul>
+                    </div>
+
+                    {{-- Círculo siempre fijo al lado --}}
+                    <div class="col-md-6 d-flex flex-column align-items-center">
+                        <div id="circulo" class="timer-circle"></div>
+                        <p id="tiempo-restante" class="mt-3 fw-bold text-center">Selecciona un temporizador</p>
+                        <button id="btn-iniciar" class="btn btn-success mt-2" type="button">Iniciar</button>
+                    </div>
+
+                </div>
+
             </div>
         </div>
-
-        <div class="d-flex flex-column align-items-center">
-            <div id="circulo" class="timer-circle"></div>
-            <p id="tiempo-restante" class="mt-3 fw-bold">Selecciona un temporizador</p>
-            <button id="btn-iniciar" class="btn btn-success mt-2" type="button">Iniciar</button>
-        </div>
     </div>
+
 </div>
 
 @endsection
